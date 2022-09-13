@@ -7,6 +7,12 @@ pipeline {
       }
     }
     stage ('Build Test') {
+      when {
+        anyOf {
+          branch 'develop';
+          branch 'main'
+        }
+      }
       steps {
         echo 'Testing...'
       }
